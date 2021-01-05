@@ -9,7 +9,7 @@
 
 #include <NRRD/nrrd_image.hxx>
 
-#include <Utils/TimerWin32.hxx>
+//#include <Utils/TimerWin32.hxx>
 
 // Analyze and optimize volume data by binning
 extern void minmaxBinning(
@@ -24,7 +24,7 @@ namespace VolumeRendering {
 	VoxelData::VoxelData(const NRRD::ImageView<float>& _voxel_data_cpu, bool use_ess)
 		: voxel_data(0x0)
 	{
-		Utils::TimerWin32 time;
+		//Utils::TimerWin32 time;
 		voxel_data=new UtilsCuda::BindlessTexture3D<float>(
 			_voxel_data_cpu.size(0),
 			_voxel_data_cpu.size(1),
@@ -38,7 +38,7 @@ namespace VolumeRendering {
 		voxel_spacing[2]=(float)_voxel_data_cpu.spacing(2);
 			
 		/// Analyze input image
-		std::cout << "Download Time:   " << time.getElapsedTime() << std::endl;
+		//std::cout << "Download Time:   " << time.getElapsedTime() << std::endl;
 		if (use_ess) {
 			ess_geometry=new SimpleBinningESS(*voxel_data,8);
 			value_min=ess_geometry->getValueMin();
@@ -58,7 +58,7 @@ namespace VolumeRendering {
 			ess_geometry=new EmptySpaceSkippingGeometry();
 		}
 
-		std::cout << "Analysis Time:   " << time.getElapsedTime() << std::endl;
+		//std::cout << "Analysis Time:   " << time.getElapsedTime() << std::endl;
 		std::cout << "Data Range:      " << getValueMin() << " to " << getValueMax() << std::endl;
 
 		centerVolume();
@@ -67,7 +67,7 @@ namespace VolumeRendering {
 	VoxelData::VoxelData(float *gpu_data, Eigen::Vector3i size, Eigen::Vector3f spacing)
 		: voxel_data(0x0)
 	{
-		Utils::TimerWin32 time;
+		//Utils::TimerWin32 time;
 		voxel_data=new UtilsCuda::BindlessTexture3D<float>(
 			size[0], size[1], size[2], gpu_data,true);
 		volume_size_vx[0]=size[0]; 
@@ -78,7 +78,7 @@ namespace VolumeRendering {
 		voxel_spacing [2]=spacing[2];
 			
 		/// Analyze input image
-		std::cout << "Download Time:   " << time.getElapsedTime() << std::endl;
+		//std::cout << "Download Time:   " << time.getElapsedTime() << std::endl;
 		value_min=0;
 		value_max=1;
 		ess_geometry=new EmptySpaceSkippingGeometry();

@@ -10,6 +10,8 @@
 #include <sstream>
 #include <fstream>
 #include <map>
+#include <cmath>
+#include <iostream>
 
 #include "BufferUtils.h"
 

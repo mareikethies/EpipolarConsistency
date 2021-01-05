@@ -3,6 +3,7 @@
 #define __radon_derivative
 
 #include <NRRD/nrrd_image.hxx>
+#include <EpipolarConsistencyCommon.hxx>
 
 // Predeclaration of some CUDA stuff
 namespace UtilsCuda {
