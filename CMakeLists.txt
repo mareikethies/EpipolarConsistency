@@ -36,7 +36,7 @@ set(CMAKE_DEBUG_POSTFIX "d")
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "limited configs" FORCE)
 
 # Shall dynamic or static linkage be the default?
-option(BUILD_SHARED_LIBS "Build Shared Libraries" ON)
+option(BUILD_SHARED_LIBS "Build Shared Libraries" OFF)
 
 # Let MSVC export all symbols by default and create output in bin dir
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
@@ -118,13 +118,13 @@ add_package(LibGeometryCalibration           "code"  ${ECC_LIBRARY_VERSION})
 # Executables "./tools" (enable/disable in CMake)
 #####################################################
 
-add_subproject(nrrdView                      "tools" ON)
-add_subproject(TrajectoryView                "tools" ON)
-add_subproject(VolumeRendering               "tools" ON)
+add_subproject(nrrdView                      "tools" OFF)
+add_subproject(TrajectoryView                "tools" OFF)
+add_subproject(VolumeRendering               "tools" OFF)
 
 add_subproject(VisualizeECC                  "tools" OFF)
 add_subproject(Registration                  "tools" OFF)
-add_subproject(FluoroTracking                "tools" ON)
+add_subproject(FluoroTracking                "tools" OFF)
 
 add_subproject(projtable2ompl                "tools" OFF)
 add_subproject(ComputeRadonIntermediate      "tools" OFF)
@@ -132,8 +132,8 @@ add_subproject(ComputeRadonIntermediate      "tools" OFF)
 # temporarily:
 add_package(LibSimple           "code"  0 0 1)
 add_subproject(Registration2D3D              "tools" OFF)
-add_subproject(FDCTCalibrationCorrection     "tools" ON)
-add_subproject(FDCTMotionCorrection          "tools" ON)
+add_subproject(FDCTCalibrationCorrection     "tools" OFF)
+add_subproject(FDCTMotionCorrection          "tools" OFF)
 
 # Sandbox
 # add_subproject(ConsistencyDemo               "tools" OFF)
