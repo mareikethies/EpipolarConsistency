@@ -111,7 +111,7 @@ add_package(LibEpipolarConsistency           "code"  ${ECC_LIBRARY_VERSION})
 add_package(LibRayCastBackproject            "code"  ${ECC_LIBRARY_VERSION})
 add_package(LibUtilsCuda                     "code"  ${ECC_LIBRARY_VERSION})
 add_package(LibUtilsQt                       "code"  ${ECC_LIBRARY_VERSION})
-add_package(LibGeometryCalibration           "code"  ${ECC_LIBRARY_VERSION})
+#add_package(LibGeometryCalibration           "code"  ${ECC_LIBRARY_VERSION})
 
 
 #####################################################
