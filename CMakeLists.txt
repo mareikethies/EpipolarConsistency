@@ -14,6 +14,8 @@ project(EpipolarConsistency)
 # The current version
 set(ECC_LIBRARY_VERSION 1 2 2)
 
+set(CMAKE_PREFIX_PATH "~/Software/Qt/5.15.2/gcc_64/lib/cmake")
+
 # Define add_subproject and add_package to create XXConfig.cmake and XXConfigVersion.cmake
 include(cmake_scripts/add_package.cmake)
 
@@ -71,7 +73,7 @@ if (OPENMP_FOUND)
 endif()
 
 # Add Eigen
-set(EIGEN3_INCLUDE_PATH "/usr/include/eigen3" CACHE PATH "Full path to Eigen3")
+set(EIGEN3_INCLUDE_PATH "/usr/local/include/eigen3" CACHE PATH "Full path to Eigen3")
 include_directories(${EIGEN3_INCLUDE_PATH})
 
 # Add NLopt optimizers
