@@ -186,13 +186,11 @@ namespace SimpleGL
 
 		/// calls a render or resize function taking width and height of render target as arguments
 		template <class Callback_int_int>
-		void callWithSize(Callback_int_int& function)
+		static void callWithSize(Callback_int_int& function)
 		{ function(m_x, m_y); }
 				
 	};
-	
-	class GLSLProgram;
-	
+
 	/// Interface to allow GLSLProgram to share variables with C++
 	class UniformInterface
 	{
@@ -213,7 +211,7 @@ namespace SimpleGL
 		int location();
 
 	};
-	
+
 	/// A value shared between C++ and a GLSL shader. Behaves much like a C++ variable of type T.
 	template <typename T> class Uniform : public UniformInterface
 	{

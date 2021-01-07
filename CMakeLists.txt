@@ -14,6 +14,8 @@ project(EpipolarConsistency)
 # The current version
 set(ECC_LIBRARY_VERSION 1 2 2)
 
+#set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC") #this is important when static libraries are linked to shared python module later
 set(CMAKE_PREFIX_PATH "~/Software/Qt/5.15.2/gcc_64/lib/cmake")
 
 # Define add_subproject and add_package to create XXConfig.cmake and XXConfigVersion.cmake
@@ -110,11 +112,10 @@ include_directories(./code)
 # The following libraries are always being built and a find_package(...) script is generated
 add_package(LibProjectiveGeometry            "code"  ${ECC_LIBRARY_VERSION})
 add_package(LibEpipolarConsistency           "code"  ${ECC_LIBRARY_VERSION})
-add_package(LibRayCastBackproject            "code"  ${ECC_LIBRARY_VERSION})
+#add_package(LibRayCastBackproject            "code"  ${ECC_LIBRARY_VERSION})
 add_package(LibUtilsCuda                     "code"  ${ECC_LIBRARY_VERSION})
 add_package(LibUtilsQt                       "code"  ${ECC_LIBRARY_VERSION})
 #add_package(LibGeometryCalibration           "code"  ${ECC_LIBRARY_VERSION})
-
 
 #####################################################
 # Executables "./tools" (enable/disable in CMake)
@@ -132,7 +133,7 @@ add_subproject(projtable2ompl                "tools" OFF)
 add_subproject(ComputeRadonIntermediate      "tools" OFF)
 
 # temporarily:
-add_package(LibSimple           "code"  0 0 1)
+# add_package(LibSimple           	      "code"  0 0 1)
 add_subproject(Registration2D3D              "tools" OFF)
 add_subproject(FDCTCalibrationCorrection     "tools" OFF)
 add_subproject(FDCTMotionCorrection          "tools" OFF)

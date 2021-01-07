@@ -135,7 +135,7 @@ namespace EpipolarConsistency
 			float*	K1					//< out: P1invT*BxdA
 			)
 		{
-			// Compute Plücker coordinates of the baseline
+			// Compute Plï¿½cker coordinates of the baseline
 			float B01=C0[0]*C1[1]-C0[1]*C1[0];
 			float B02=C0[0]*C1[2]-C0[2]*C1[0];
 			float B03=C0[0]*C1[3]-C0[3]*C1[0];
@@ -146,7 +146,7 @@ namespace EpipolarConsistency
 			const float s2=std::sqrt(B12*B12+B02*B02+B01*B01);
 			const float s3=std::sqrt(B03*B03+B13*B13+B23*B23);
 			// K is a 4x2 matrix mapping [cos(kappa) sin(kappa)] to epipolar plane E_kappa.
-			// It constsits of the dual Plücker matrix of the baseline Bxd multiplied with the
+			// It constsits of the dual Plï¿½cker matrix of the baseline Bxd multiplied with the
 			// matrix A=[ [a1; 0], [a2; 0] ]
 			const float K[] = {
 				+ B12*s3, - B02*s3, + B01*s3, 0,
@@ -168,7 +168,7 @@ namespace EpipolarConsistency
 		}
 
 		/// Compute geometric consitency metric for one pair of views.
-		static double MetricCPU::computeForImagePair(
+		static double computeForImagePair(
 			const Eigen::Vector4d			&C0,			//< Camera center 0 (dehomogenized)
 			const Eigen::Vector4d			&C1,			//< Camera center 1 (dehomogenized)
 			const ProjectionMatrix			&P0,			//< Projection matrix for image 0, normalized to det(M)>0 and |m3|=1
