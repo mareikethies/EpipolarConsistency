@@ -14,9 +14,9 @@ namespace NRRD
 	public:
         using ImageView<T>::nrrd_header;
         using ImageView<T>::meta_info;
-		using ImageView<T>::data;
+		//using ImageView<T>::data;
 	private:
-        //using ImageView<T>::data;
+        using ImageView<T>::data;
         using ImageView<T>::dim;
         using ImageView<T>::element_spacing;
 	private:
@@ -36,6 +36,10 @@ namespace NRRD
 
 		/// A n-D image of specific size. Optionally wraps an existing data pointer.
         Image(int size[], int n, T* dt=0x0) : ImageView<T>(), alloc(0) { set(size,n,dt); }
+
+		T* get_data(){
+			return data;
+		}
 
 		/// Clone an existing image.
 		template <typename T2>
