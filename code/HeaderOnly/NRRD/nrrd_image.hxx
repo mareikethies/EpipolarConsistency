@@ -14,8 +14,9 @@ namespace NRRD
 	public:
         using ImageView<T>::nrrd_header;
         using ImageView<T>::meta_info;
+		using ImageView<T>::data;
 	private:
-        using ImageView<T>::data;
+        //using ImageView<T>::data;
         using ImageView<T>::dim;
         using ImageView<T>::element_spacing;
 	private:
