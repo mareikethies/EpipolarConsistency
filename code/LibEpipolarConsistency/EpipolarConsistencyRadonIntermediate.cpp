@@ -169,6 +169,7 @@ namespace EpipolarConsistency
 		out->allocate(n*n);
 		K01s->allocate(n*(n-1)*8);
 		std::vector<float> tmp_data;
+		_out = nullptr;
 		if (!_out) {
 			tmp_data = std::vector<float>(n*n, 0.0f);
 			_out = &tmp_data[0];
