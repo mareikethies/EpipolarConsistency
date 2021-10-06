@@ -15,3 +15,5 @@ config/example_data/proj000.nrrd
 config/example_data/proj040.nrrd
 config/VisualizeECC.ini
 code/LibEpipolarConsistency/.vscode/settings.json
+build/
+export/

@@ -16,7 +16,7 @@ set(ECC_LIBRARY_VERSION 1 2 2)
 
 #set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC") #this is important when static libraries are linked to shared python module later
-set(CMAKE_PREFIX_PATH "~/Software/Qt/5.15.2/gcc_64/lib/cmake")
+set(CMAKE_PREFIX_PATH "~/Software/Qt/5.12.11/gcc_64/lib/cmake")
 
 # Define add_subproject and add_package to create XXConfig.cmake and XXConfigVersion.cmake
 include(cmake_scripts/add_package.cmake)
